@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -20,6 +21,9 @@ MEDIA_URL = '/media/'
 
 # Path to the directory that will hold user-uploaded files
 MEDIA_ROOT = BASE_DIR / 'media'
+screenshot_dir = os.path.join(os.path.dirname(__file__), "screenshots")
+
+
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
