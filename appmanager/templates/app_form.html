@@ -1,0 +1,14 @@
+<!-- app_management/templates/app_management/app_form.html -->
+{% extends "base.html" %}
+
+{% block title %}Upload App{% endblock %}
+
+{% block content %}
+    <h2 class="mb-4">Upload New App</h2>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">Upload</button>
+    </form>
+    <a href="{% url 'app_list' %}" class="btn btn-secondary mt-3">Back to My Apps</a>
+{% endblock %}

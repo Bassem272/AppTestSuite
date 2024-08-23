@@ -1,0 +1,14 @@
+<!-- app_management/templates/app_management/app_confirm_delete.html -->
+{% extends "base.html" %}
+
+{% block title %}Delete App{% endblock %}
+
+{% block content %}
+    <h2 class="mb-4">Delete App</h2>
+    <p>Are you sure you want to delete the app "{{ app.name }}"?</p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">Yes, delete</button>
+        <a href="{% url 'app_list' %}" class="btn btn-secondary">Cancel</a>
+    </form>
+{% endblock %}

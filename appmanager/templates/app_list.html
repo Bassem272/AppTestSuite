@@ -1,0 +1,39 @@
+<!-- app_management/templates/app_management/app_list.html -->
+{% extends "base.html" %}
+
+{% block title %}My Apps{% endblock %}
+
+{% block content %}
+    <h2 class="mb-4">My Apps</h2>
+    <a href="{% url 'app_create' %}" class="btn btn-primary mb-3">Upload New App</a>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Uploaded By</th>
+                <th>Date Uploaded</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for app in apps %}
+                <tr>
+                    <td>{{ app.name }}</td>
+                    <td>{{ app.uploaded_by.username }}</td>
+                    <td>{{ app.created_at }}</td>
+                    <td>
+                        <a href="{% url 'app_update' app.pk %}" class="btn btn-warning btn-sm">Edit</a>
+                        <form action="{% url 'app_delete' app.pk %}" method="post" style="display:inline;">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+            {% empty %}
+                <tr>
+                    <td colspan="4">No apps found.</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
