@@ -28,6 +28,7 @@ def app_create(request):
             app.second_screen_screenshot = results['second_screenshot']
             app.ui_hierarchy = results['ui_hierarchy']
             app.screen_changed = results['screen_changed']
+            app.video_recording = results['video_path']
             app.save()
 
             return redirect('app_list')
@@ -54,6 +55,7 @@ def app_update(request, pk):
                 app.second_screen_screenshot = results['second_screenshot']
                 app.ui_hierarchy = results['ui_hierarchy']
                 app.screen_changed = results['screen_changed']
+                app.video_recording = results['video_path']
                 app.save()
 
             return redirect('app_list')

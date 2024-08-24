@@ -67,8 +67,10 @@ def test_apk(apk_path):
         print(f"Button Class: {response['button_class']}")
 
         # Ensure the directory for saving screenshots and video exists
-        screenshot_dir = os.path.join(os.path.dirname(__file__), "screenshots")
+        screenshot_dir = os.path.join("D:\AppTestSuite\media", "screenshots")
+        videos_dir = os.path.join("D:\AppTestSuite\media", "videos")
         os.makedirs(screenshot_dir, exist_ok=True)
+        os.makedirs(videos_dir, exist_ok=True)
 
         # Create a unique timestamp for filenames
         timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
@@ -105,7 +107,7 @@ def test_apk(apk_path):
         # Stop video recording and save the file
         video_raw = driver.stop_recording_screen()
         video_data = base64.b64decode(video_raw)
-        video_path = os.path.join(screenshot_dir, f"test_video_{timestamp}.mp4")
+        video_path = os.path.join(videos_dir, f"video_recording_{timestamp}.mp4")
         with open(video_path, "wb") as video_file:
             video_file.write(video_data)
 
