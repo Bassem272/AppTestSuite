@@ -1,4 +1,5 @@
-<!-- app_management/templates/app_management/app_list.html -->
+{% extends "base.html" %}
+{% comment %} <!-- app_management/templates/app_management/app_list.html -->
 {% extends "base.html" %}
 
 {% block title %}My Apps{% endblock %}
@@ -36,4 +37,124 @@
             {% endfor %}
         </tbody>
     </table>
+{% endblock %} {% endcomment %}
+
+{% load i18n %}
+{% block title %}{% trans "My Apps" %}{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <!-- Accessibility Controls -->
+    <div class="d-flex justify-content-end mb-3">
+        <!-- High Contrast Toggle -->
+        <button id="contrast-toggle" class="btn btn-outline-secondary me-2">
+            {% trans "High Contrast" %}
+        </button>
+        <!-- Font Size Controls -->
+        <button id="increase-font" class="btn btn-outline-secondary me-2">
+            {% trans "Increase Font Size" %}
+        </button>
+        <button id="decrease-font" class="btn btn-outline-secondary">
+            {% trans "Decrease Font Size" %}
+        </button>
+    </div>
+
+    <h2 class="mb-4">{% trans "My Apps" %}</h2>
+    <a href="{% url 'app_create' %}" class="btn btn-primary mb-3">
+        {% trans "Upload New App" %}
+    </a>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>{% trans "Name" %}</th>
+                <th>{% trans "Uploaded By" %}</th>
+                <th>{% trans "Date Uploaded" %}</th>
+                <th>{% trans "Actions" %}</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for app in apps %}
+                <tr>
+                    <td>{{ app.name }}</td>
+                    <td>{{ app.uploaded_by.username }}</td>
+                    <td>{{ app.created_at }}</td>
+                    <td>
+                        <a href="{% url 'app_update' app.pk %}" class="btn btn-warning btn-sm">
+                            {% trans "Edit" %}
+                        </a>
+                        <form action="{% url 'app_delete' app.pk %}" method="post" style="display:inline;">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-danger btn-sm">
+                                {% trans "Delete" %}
+                            </button>
+                        </form>
+                    </td>
+                </tr>
+            {% empty %}
+                <tr>
+                    <td colspan="4">{% trans "No apps found." %}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+<!-- JavaScript for Accessibility Features -->
+<script>
+    // High Contrast Mode
+    const contrastToggle = document.getElementById('contrast-toggle');
+    contrastToggle.addEventListener('click', () => {
+        document.body.classList.toggle('high-contrast');
+    });
+
+    // Font Size Control
+    const increaseFont = document.getElementById('increase-font');
+    const decreaseFont = document.getElementById('decrease-font');
+    const root = document.documentElement;
+
+    increaseFont.addEventListener('click', () => {
+        let currentSize = parseFloat(getComputedStyle(root).getPropertyValue('--font-size')) || 1;
+        root.style.setProperty('--font-size', currentSize + 0.1 + 'em');
+    });
+
+    decreaseFont.addEventListener('click', () => {
+        let currentSize = parseFloat(getComputedStyle(root).getPropertyValue('--font-size')) || 1;
+        root.style.setProperty('--font-size', Math.max(0.8, currentSize - 0.1) + 'em');
+    });
+</script>
+
+<style>
+    /* High Contrast Styles */
+    .high-contrast {
+        background-color: black;
+        color: white;
+    }
+
+    .high-contrast .btn-primary {
+        background-color: blue;
+        border-color: blue;
+        color: white;
+    }
+
+    .high-contrast .btn-secondary {
+        background-color: gray;
+        border-color: gray;
+        color: white;
+    }
+
+    /* Font Size Control */
+    :root {
+        --font-size: 1em;
+    }
+
+    body {
+        font-size: var(--font-size);
+    }
+
+    .btn,
+    .mb-3 {
+        font-size: var(--font-size);
+    }
+</style>
+
 {% endblock %}

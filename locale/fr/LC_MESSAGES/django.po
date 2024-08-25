@@ -1,0 +1,146 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+
+
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-08-25 00:30+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: .\accounts\templates\base.html:188 .\accounts\templates\login.html:43
+#: .\accounts\templates\profile.html:38 .\accounts\templates\register.html:33
+#: .\appmanager\templates\app_confirm_delete.html:32
+#: .\appmanager\templates\app_form.html:31
+#: .\appmanager\templates\app_list.html:56
+msgid "Increase Font Size"
+msgstr "Augmenter la taille de la police"
+
+#: .\accounts\templates\base.html:189
+msgid "Toggle High Contrast"
+msgstr "Activer le contraste élevé"
+
+#: .\accounts\templates\base.html:190
+msgid "Switch to French"
+msgstr "Passer au français"
+
+#: .\accounts\templates\base.html:191
+#, fuzzy
+#| msgid "Switch to French"
+msgid "Switch to English"
+msgstr "Passer au français"
+
+#: .\accounts\templates\base.html:197 .\accounts\templates\profile.html:26
+#: .\accounts\templates\profile.html:45
+msgid "Profile"
+msgstr "Profil"
+
+#: .\accounts\templates\base.html:198
+msgid "Apps"
+msgstr "Applications"
+
+#: .\accounts\templates\base.html:199 .\appmanager\templates\app_form.html:38
+#: .\appmanager\templates\app_list.html:65
+msgid "Upload New App"
+msgstr "Télécharger une nouvelle application"
+
+#: .\accounts\templates\base.html:206 .\accounts\templates\profile.html:54
+msgid "Logout"
+msgstr "Déconnexion"
+
+#: .\accounts\templates\base.html:209 .\accounts\templates\login.html:31
+#: .\accounts\templates\login.html:52 .\accounts\templates\login.html:64
+msgid "Login"
+msgstr "Connexion"
+
+#: .\accounts\templates\login.html:39 .\accounts\templates\profile.html:34
+#: .\accounts\templates\register.html:29
+#: .\appmanager\templates\app_confirm_delete.html:28
+#: .\appmanager\templates\app_form.html:27
+#: .\appmanager\templates\app_list.html:52
+msgid "High Contrast"
+msgstr "Contraste élevé"
+
+#: .\accounts\templates\login.html:46 .\accounts\templates\profile.html:41
+#: .\accounts\templates\register.html:36
+#: .\appmanager\templates\app_confirm_delete.html:35
+#: .\appmanager\templates\app_form.html:34
+#: .\appmanager\templates\app_list.html:59
+msgid "Decrease Font Size"
+msgstr "Réduire la taille de la police"
+
+#: .\accounts\templates\register.html:21 .\accounts\templates\register.html:40
+#: .\accounts\templates\register.html:47
+msgid "Register"
+msgstr "S'inscrire"
+
+#: .\appmanager\templates\app_confirm_delete.html:20
+#: .\appmanager\templates\app_confirm_delete.html:39
+msgid "Delete App"
+msgstr "Supprimer l'application"
+
+#: .\appmanager\templates\app_confirm_delete.html:40
+msgid "Are you sure you want to delete the app"
+msgstr "Êtes-vous sûr de vouloir supprimer l'application"
+
+#: .\appmanager\templates\app_confirm_delete.html:44
+msgid "Yes, delete"
+msgstr "Oui, supprimer"
+
+#: .\appmanager\templates\app_confirm_delete.html:47
+msgid "Cancel"
+msgstr "Annuler"
+
+#: .\appmanager\templates\app_form.html:19
+msgid "Upload App"
+msgstr "Télécharger l'application"
+
+#: .\appmanager\templates\app_form.html:43
+msgid "Upload"
+msgstr "Télécharger"
+
+#: .\appmanager\templates\app_form.html:47
+msgid "Back to My Apps"
+msgstr "Retour à Mes applications"
+
+#: .\appmanager\templates\app_list.html:44
+#: .\appmanager\templates\app_list.html:63
+msgid "My Apps"
+msgstr "Mes applications"
+
+#: .\appmanager\templates\app_list.html:70
+msgid "Name"
+msgstr "Nom"
+
+#: .\appmanager\templates\app_list.html:71
+msgid "Uploaded By"
+msgstr "Téléchargé par"
+
+#: .\appmanager\templates\app_list.html:72
+msgid "Date Uploaded"
+msgstr "Date de téléchargement"
+
+#: .\appmanager\templates\app_list.html:73
+msgid "Actions"
+msgstr "Actions"
+
+#: .\appmanager\templates\app_list.html:84
+msgid "Edit"
+msgstr "Modifier"
+
+#: .\appmanager\templates\app_list.html:89
+msgid "Delete"
+msgstr "Supprimer"
+
+#: .\appmanager\templates\app_list.html:96
+msgid "No apps found."
+msgstr "Aucune application trouvée."

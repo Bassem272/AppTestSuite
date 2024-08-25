@@ -1,4 +1,7 @@
-<!-- templates/login.html -->
+{% extends "base.html" %}
+{% comment %} <!-- templates/login.html -->
+
+
 {% extends "base.html" %}
 
 {% block title %}Login{% endblock %}
@@ -21,4 +24,106 @@
 </div>
 
         {% endblock %}
-        
+         {% endcomment %}
+
+         {% load i18n %}
+         {% block title %}{% trans "Login" %}{% endblock %}
+         
+         {% block content %}
+         <div class="container text-center mt-5">
+             <!-- Accessibility Controls -->
+             <div class="d-flex justify-content-end mb-3">
+                 <!-- High Contrast Toggle -->
+                 <button id="contrast-toggle" class="btn btn-outline-secondary me-2">
+                     {% trans "High Contrast" %}
+                 </button>
+                 <!-- Font Size Controls -->
+                 <button id="increase-font" class="btn btn-outline-secondary me-2">
+                     {% trans "Increase Font Size" %}
+                 </button>
+                 <button id="decrease-font" class="btn btn-outline-secondary">
+                     {% trans "Decrease Font Size" %}
+                 </button>
+             </div>
+         
+             <div class="card text-center m-auto" style="max-width: 18rem;">
+                 <div class="card-header">
+                     <h2>{% trans "Login" %}</h2>
+                 </div>
+                 <div class="card-body">
+                     <form method="post">
+                         {% csrf_token %}
+                         {% if error %}
+                         <div class="alert alert-danger">{{ error }}</div>
+                         {% endif %}
+                         <div class="mb-3">
+                             {{ form.as_p }}
+                         </div>
+                         <button type="submit" class="btn btn-primary">
+                             {% trans "Login" %}
+                         </button>
+                     </form>
+                 </div>
+             </div>
+         </div>
+         
+         <!-- JavaScript for Accessibility Features -->
+         <script>
+             // High Contrast Mode
+             const contrastToggle = document.getElementById('contrast-toggle');
+             contrastToggle.addEventListener('click', () => {
+                 document.body.classList.toggle('high-contrast');
+             });
+         
+             // Font Size Control
+             const increaseFont = document.getElementById('increase-font');
+             const decreaseFont = document.getElementById('decrease-font');
+             const root = document.documentElement;
+         
+             increaseFont.addEventListener('click', () => {
+                 let currentSize = parseFloat(getComputedStyle(root).getPropertyValue('--font-size')) || 1;
+                 root.style.setProperty('--font-size', currentSize + 0.1 + 'em');
+             });
+         
+             decreaseFont.addEventListener('click', () => {
+                 let currentSize = parseFloat(getComputedStyle(root).getPropertyValue('--font-size')) || 1;
+                 root.style.setProperty('--font-size', Math.max(0.8, currentSize - 0.1) + 'em');
+             });
+         </script>
+         
+         <style>
+             /* High Contrast Styles */
+             .high-contrast {
+                 background-color: black;
+                 color: white;
+             }
+         
+             .high-contrast .card {
+                 background-color: black;
+                 border: 1px solid white;
+             }
+         
+             .high-contrast .btn-primary {
+                 background-color: yellow;
+                 border-color: yellow;
+                 color: black;
+             }
+         
+             /* Font Size Control */
+             :root {
+                 --font-size: 1em;
+             }
+         
+             body {
+                 font-size: var(--font-size);
+             }
+         
+             .card-header h2,
+             .card-body,
+             .btn {
+                 font-size: var(--font-size);
+             }
+         </style>
+         
+         {% endblock %}
+         
